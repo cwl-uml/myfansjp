@@ -1,40 +1,27 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { ChakraProvider, Container, theme } from '@chakra-ui/react';
+
+import KentoSan from './config/KentoSan.json';
+import LightSan from './config/LightSan.json';
+import MSan from './config/MSan.json';
+
+import LandingPage from './containers/landing';
+
+import './styles/index.css';
 
 function App() {
+  const content = {
+    KentoSan,
+    LightSan,
+    MSan,
+  };
+
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+      <Container className="margin-top-16 margin-bottom-16">
+        <LandingPage content={content} />
+      </Container>
+      {/* </Box> */}
     </ChakraProvider>
   );
 }

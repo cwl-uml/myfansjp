@@ -1,0 +1,6 @@
+/* Custom styles */
+@import "utilities.css";
+
+.app-margin {
+  margin: 16px auto;
+}
